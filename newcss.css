@@ -728,24 +728,23 @@ img {
 /*================== Portfolio ==================*/
 /* Portfolio Container */
 .portfolio__container {
-  display: flex;
-  flex-wrap: wrap; /* Allows wrapping of items */
-  gap: 20px; /* Space between the projects */
-  justify-content: space-between; /* Space between items */
-  overflow: initial;
+  overflow: hidden; /* Hide overflow to only show one project at a time */
+  position: relative;
 }
 
 /* Portfolio Content */
 .portfolio__content {
-  width: calc(33.33% - 20px); /* Adjust width for three projects per row, subtracting gap */
+  width: 100%; /* Ensure only one project is displayed */
   padding: 0 1.5rem;
-  box-sizing: border-box; /* Ensure padding does not affect width */
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .portfolio__img {
   width: 100%; /* Make image responsive */
   border-radius: 0.5rem;
-  justify-self: center;
 }
 
 .portfolio__title {
@@ -761,23 +760,32 @@ img {
   transform: translateX(0.25rem);
 }
 
-/* Adjusting the swiper navigation */
-.swiper-button-prev::after,
-.swiper-button-next::after {
-  content: "";
+/* Swiper Navigation Arrows */
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.swiper-button-prev {
+  left: 10px;
+}
+
+.swiper-button-next {
+  right: 10px;
 }
 
 .swiper-portfolio-icon {
   font-size: 2rem;
   color: var(--first-color);
-}
-
-.swiper-button-prev {
-  left: -0.5rem;
-}
-
-.swiper-button-next {
-  right: -0.5rem;
 }
 
 .swiper-container-horizontal > .swiper-pagination-bullets {
@@ -788,24 +796,13 @@ img {
   background-color: var(--first-color);
 }
 
+/* Ensure no outlines for navigation buttons */
 .swiper-button-next,
 .swiper-button-prev,
 .swiper-pagination-bullets {
   outline: none;
 }
 
-/* Make the portfolio section responsive */
-@media (max-width: 768px) {
-  .portfolio__content {
-    width: calc(50% - 20px); /* Two projects per row on medium screens */
-  }
-}
-
-@media (max-width: 480px) {
-  .portfolio__content {
-    width: 100%; /* One project per row on small screens */
-  }
-}
 
 
 
