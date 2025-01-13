@@ -61,6 +61,28 @@ tabs.forEach(tab =>{
     })
 })      
 */
+// Select all skill headers
+const skillHeaders = document.querySelectorAll('.skills__header');
+
+// Add click event listeners
+skillHeaders.forEach(header => {
+  header.addEventListener('click', () => {
+    const parent = header.parentElement; // Get the parent .skills__content element
+
+    // Close all other skills__content sections
+    document.querySelectorAll('.skills__content').forEach(content => {
+      if (content !== parent) {
+        content.classList.remove('skills__open');
+        content.classList.add('skills__close');
+      }
+    });
+
+    // Toggle the current section
+    parent.classList.toggle('skills__open');
+    parent.classList.toggle('skills__close');
+  });
+});
+
 
 /*======================= Services Modal ===================*/
 const modalViews = document.querySelectorAll(".services__modal"),
