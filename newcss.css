@@ -727,39 +727,55 @@ img {
 
 /*================== Portfolio ==================*/
 
+/* Portfolio Container */
 .portfolio__container {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping of items */
+  gap: 20px; /* Space between the projects */
+  justify-content: space-between; /* Space between items */
   overflow: initial;
 }
-/*need change*/
+
+/* Portfolio Content */
 .portfolio__content {
+  width: calc(33.33% - 20px); /* Adjust width for three projects per row, subtracting gap */
   padding: 0 1.5rem;
+  box-sizing: border-box; /* Ensure padding does not affect width */
 }
+
 .portfolio__img {
-  width: 310px;
+  width: 100%; /* Make image responsive */
   border-radius: 0.5rem;
   justify-self: center;
 }
+
 .portfolio__title {
   font-size: var(--h3-font-size);
   margin-bottom: var(--mb-0-5);
 }
+
 .portfolio__description {
   margin-bottom: var(--mb-0-75);
 }
+
 .portfolio__button:hover .button__icon {
   transform: translateX(0.25rem);
 }
+
 .swiper-button-prev::after,
 .swiper-button-next::after {
   content: "";
 }
+
 .swiper-portfolio-icon {
   font-size: 2rem;
   color: var(--first-color);
 }
+
 .swiper-button-prev {
   left: -0.5rem;
 }
+
 .swiper-button-next {
   right: -0.5rem;
 }
@@ -767,6 +783,7 @@ img {
 .swiper-container-horizontal > .swiper-pagination-bullets {
   bottom: -2.5rem;
 }
+
 .swiper-pagination-bullets-active {
   background-color: var(--first-color);
 }
@@ -776,6 +793,7 @@ img {
 .swiper-pagination-bullets {
   outline: none;
 }
+
 
 /*================ Contact Me ===============*/
 
