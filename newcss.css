@@ -726,7 +726,6 @@ img {
 }
 
 /*================== Portfolio ==================*/
-
 /* Portfolio Container */
 .portfolio__container {
   display: flex;
@@ -762,6 +761,7 @@ img {
   transform: translateX(0.25rem);
 }
 
+/* Adjusting the swiper navigation */
 .swiper-button-prev::after,
 .swiper-button-next::after {
   content: "";
@@ -793,6 +793,20 @@ img {
 .swiper-pagination-bullets {
   outline: none;
 }
+
+/* Make the portfolio section responsive */
+@media (max-width: 768px) {
+  .portfolio__content {
+    width: calc(50% - 20px); /* Two projects per row on medium screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio__content {
+    width: 100%; /* One project per row on small screens */
+  }
+}
+
 
 
 /*================ Contact Me ===============*/
